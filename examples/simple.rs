@@ -68,7 +68,7 @@ fn main() {
     let builder = configure(builder);
     let mut cs = builder.build(());
 
-    // I know: x * x + 4x + 7, when x = 1, is 12
+    // I know: x * x - 4x + 7, when x = 1, is 4
     // a = x * x
     // b = 4 * x
     // c = a + b
@@ -85,7 +85,7 @@ fn main() {
 
     let a = x.mul(&mut cs, &x);
     let b = x.mul(&mut cs, &four);
-    let c = a.add(&mut cs, &b);
+    let c = a.sub(&mut cs, &b);
     let result = c.add(&mut cs, &seven);
 
     let result = result.get_variable();
